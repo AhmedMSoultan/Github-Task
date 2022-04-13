@@ -26,7 +26,7 @@ class RepositoriesViewModel: NSObject {
     var bindRepositoriesData: (()->()) = {}
     var bindErrorMessage: (()->()) = {}
     
-    var pageID = "2"
+    var pageID = "1"
     
     override init() {
         super.init()

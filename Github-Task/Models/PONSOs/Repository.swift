@@ -28,9 +28,7 @@ class Repository: Codable {
     let repoDescription: String?
     let starsCount: Int?
     let issuesCount: Int?
-//    let creationDate: Date?
-//    let lastUpdateDate: Date?
-//    let pushDate: Date?
+    let lastUpdateDate: String?
     let owner: Owner?
     
     enum CodingKeys: String , CodingKey {
@@ -39,9 +37,7 @@ class Repository: Codable {
         case repoDescription = "description"
         case starsCount = "stargazers_count"
         case issuesCount = "open_issues_count"
-//        case creationDate = "created_at"
-//        case lastUpdateDate = "updated_at"
-//        case pushDate = "pushed_at"
+        case lastUpdateDate = "updated_at"
         case owner = "owner"
     }
 }
