@@ -8,12 +8,12 @@
 import Foundation
 
 
-struct ResponseData: Codable {
+class ResponseData: Codable {
     let totalCount : Int?
     let incompleteResult : Bool?
     let repositories : [Repository]?
     
-    enum codingKeys: String , CodingKey {
+    enum CodingKeys: String , CodingKey {
         
         case totalCount = "total_count"
         case incompleteResult = "incomplete_results"
@@ -21,37 +21,37 @@ struct ResponseData: Codable {
     }
 }
 
-struct Repository: Codable {
+class Repository: Codable {
     
     let repoID: Int?
     let repoName: String?
     let repoDescription: String?
     let starsCount: Int?
     let issuesCount: Int?
-    let creationDate: Date?
-    let lastUpdateDate: Date?
-    let pushDate: Date?
-//    let owner: Owner?
+//    let creationDate: Date?
+//    let lastUpdateDate: Date?
+//    let pushDate: Date?
+    let owner: Owner?
     
-    enum codingKeys: String , CodingKey {
+    enum CodingKeys: String , CodingKey {
         case repoID = "id"
         case repoName = "name"
         case repoDescription = "description"
         case starsCount = "stargazers_count"
         case issuesCount = "open_issues_count"
-        case creationDate = "created_at"
-        case lastUpdateDate = "updated_at"
-        case pushDate = "pushed_at"
-//        case owner = "owner"
+//        case creationDate = "created_at"
+//        case lastUpdateDate = "updated_at"
+//        case pushDate = "pushed_at"
+        case owner = "owner"
     }
 }
 
-struct Owner: Codable {
+class Owner: Codable {
     let userID: Int?
     let userName: String?
     let userAvatar: URL?
     
-    enum codingKeys: String , CodingKey {
+    enum CodingKeys: String , CodingKey {
         case userID = "id"
         case userName = "login"
         case userAvatar = "avatar_url"
@@ -61,7 +61,7 @@ struct Owner: Codable {
 
 
 // MARK: - RepositoryResponse
-struct RepositoryResponse: Codable {
+class RepositoryResponse: Codable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [Repositor]

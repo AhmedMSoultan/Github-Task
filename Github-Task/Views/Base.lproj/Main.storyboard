@@ -132,7 +132,7 @@
                                         <constraint firstAttribute="bottom" secondItem="HcM-GR-BdX" secondAttribute="bottom" id="vKe-Pi-Y61"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="regular"/>
+                                <blurEffect style="systemThinMaterial"/>
                             </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -168,6 +168,7 @@
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="TextColor"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" name="TextColor"/>
@@ -186,7 +187,7 @@
     <resources>
         <image name="Background01" width="330" height="464.5"/>
         <namedColor name="TextColor">
-            <color red="0.38400000333786011" green="0.20399999618530273" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.91764706370000004" green="0.2352941036" blue="0.56862747670000002" alpha="0.79935844370860931" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

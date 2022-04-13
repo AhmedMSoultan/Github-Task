@@ -13,20 +13,20 @@ class RepositoriesViewModel: NSObject {
     
     var arrayOfRepositories: [Repository] = []{
         didSet{
-            self.bindRepositoriesData
+            self.bindRepositoriesData()
         }
     }
     
     var errorMessage: String = ""{
         didSet{
-            self.bindErrorMessage
+            self.bindErrorMessage()
         }
     }
     
     var bindRepositoriesData: (()->()) = {}
     var bindErrorMessage: (()->()) = {}
     
-    var pageID = "1"
+    var pageID = "2"
     
     override init() {
         super.init()

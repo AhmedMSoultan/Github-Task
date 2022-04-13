@@ -17,10 +17,17 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Top Github Repositories"
+        self.title = "Github Repositories"
         
-        repositiriesViewModel.bindRepositoriesData = self.onSuccessUpdateView
-        repositiriesViewModel.bindErrorMessage = self.onFailUpdateView
+        repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
+        
+        repositiriesViewModel.bindRepositoriesData = {
+            self.onSuccessUpdateView()
+        }
+        repositiriesViewModel.bindErrorMessage = {
+            self.onFailUpdateView()
+        }
         
     }
     
@@ -48,7 +55,7 @@ extension HomePageViewController: UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoriesTableViewCell
-        cell.repositoryNameLabel.text = arrayOfRepositories[indexPath.row].repoName
+        cell.repositoryNameLabel.text = arrayOfRepositories[indexPath.row].repoName!
         return cell
     }
     
