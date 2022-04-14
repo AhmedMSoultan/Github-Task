@@ -22,6 +22,7 @@ class HomePageViewController: UIViewController {
         
         repositoriesTableView.delegate = self
         repositoriesTableView.dataSource = self
+        repositoriesTableView.prefetchDataSource = self
         
         repositiriesViewModel.bindRepositoriesData = {
             self.onSuccessUpdateView()
@@ -41,10 +42,12 @@ class HomePageViewController: UIViewController {
     }
     
     func onSuccessUpdateView() {
+        
         self.arrayOfRepositories = repositiriesViewModel.arrayOfRepositories
         DispatchQueue.main.async {
             self.repositoriesTableView.reloadData()
         }
+        self.repositiriesViewModel.pageID += 1
     }
     
     func onFailUpdateView() {
@@ -60,7 +63,7 @@ class HomePageViewController: UIViewController {
 extension HomePageViewController: UITableViewDelegate , UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 34
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +85,27 @@ extension HomePageViewController: UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.4) {
+            cell.transform = CGAffineTransform.identity
+        }
+    }
     
+}
+
+extension HomePageViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if index.row >= arrayOfRepositories.count - 10 && !repositiriesViewModel.isFetching{
+                self.repositiriesViewModel.fetchRepositoriesDataFromGithubService()
+                break
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        
+    }
     
 }

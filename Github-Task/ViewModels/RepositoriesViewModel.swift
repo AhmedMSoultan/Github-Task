@@ -26,7 +26,8 @@ class RepositoriesViewModel: NSObject {
     var bindRepositoriesData: (()->()) = {}
     var bindErrorMessage: (()->()) = {}
     
-    var pageID = "1"
+    var pageID = 1
+    var isFetching = false
     
     override init() {
         super.init()
@@ -36,18 +37,18 @@ class RepositoriesViewModel: NSObject {
     
     func fetchRepositoriesDataFromGithubService () {
         
-        githubService.requestPageRepositories(pageID: pageID) { repositories, error in
-            
-            if let error = error {
-                let message = error.localizedDescription
-                self.errorMessage = message
-            }else{
-                self.arrayOfRepositories = repositories
-            }
+        self.isFetching = true
+        print(pageID)
+        if pageID < 35 {
+            githubService.requestPageRepositories(pageID: "\(pageID)") { repositories, error in
+                if let error = error {
+                    let message = error.localizedDescription
+                    self.errorMessage = message
+                    }else{
+                        self.arrayOfRepositories.append(contentsOf: repositories)
+                        self.isFetching = false
+                        }
+                }
         }
     }
-    
 }
-
-
-
