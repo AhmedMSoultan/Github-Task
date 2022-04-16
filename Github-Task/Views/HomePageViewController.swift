@@ -11,6 +11,7 @@ class HomePageViewController: UIViewController {
 
     @IBOutlet weak var repositoriesTableView: UITableView!
     @IBOutlet weak var backBlurView: UIVisualEffectView!
+    var activityIndicator = UIActivityIndicatorView(style: .large)
     
     var repositiriesViewModel = RepositoriesViewModel()
     
@@ -39,6 +40,19 @@ class HomePageViewController: UIViewController {
         repositoriesTableView.layer.masksToBounds = true
         repositoriesTableView.layer.cornerCurve = .continuous
         
+        self.startActivityIndicator()
+        
+    }
+    
+    func startActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.color = UIColor(named: "TextColor")
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+            activityIndicator.stopAnimating()
     }
     
     func onSuccessUpdateView() {
@@ -46,6 +60,7 @@ class HomePageViewController: UIViewController {
         self.arrayOfRepositories = repositiriesViewModel.arrayOfRepositories
         DispatchQueue.main.async {
             self.repositoriesTableView.reloadData()
+            self.stopActivityIndicator()
         }
         self.repositiriesViewModel.pageID += 1
     }
@@ -98,7 +113,7 @@ extension HomePageViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
             if index.row >= arrayOfRepositories.count - 10 && !repositiriesViewModel.isFetching{
-                self.repositiriesViewModel.fetchRepositoriesDataFromGithubService()
+                self.repositiriesViewModel.fetchRepositoriesDataFromGithubService(apiService: repositiriesViewModel.githubService)
                 break
             }
         }

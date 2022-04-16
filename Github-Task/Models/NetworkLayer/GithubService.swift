@@ -10,8 +10,8 @@ import Foundation
 class GithubService {
     // Connection to the Github-API Service
         
-        func requestPageRepositories( pageID : String , completionHandler: @escaping ([Repository] , Error?) -> Void){
-            let _ = URLSession.shared.dataTask(with: EndPoint.repositoriesPageEndPoint(pageID).url) { data, response, error in
+    func requestPageRepositories(url : URL,  completionHandler: @escaping ([Repository] , Error?) -> Void){
+            let _ = URLSession.shared.dataTask(with: url ) { data, response, error in
                 guard let data = data else {
                     completionHandler([], error)
                     return

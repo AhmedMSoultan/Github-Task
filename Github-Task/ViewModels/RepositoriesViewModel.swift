@@ -31,16 +31,16 @@ class RepositoriesViewModel: NSObject {
     
     override init() {
         super.init()
-        self.fetchRepositoriesDataFromGithubService()
+        self.fetchRepositoriesDataFromGithubService(apiService: githubService)
     }
     
     
-    func fetchRepositoriesDataFromGithubService () {
+    func fetchRepositoriesDataFromGithubService (apiService: GithubService) {
         
         self.isFetching = true
         print(pageID)
         if pageID < 35 {
-            githubService.requestPageRepositories(pageID: "\(pageID)") { repositories, error in
+            apiService.requestPageRepositories(url: EndPoint.repositoriesPageEndPoint("\(pageID)").url) { repositories, error in
                 if let error = error {
                     let message = error.localizedDescription
                     self.errorMessage = message

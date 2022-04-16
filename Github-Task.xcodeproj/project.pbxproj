@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A00BAA72809BB4D0052EA22 /* GithubServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00BAA62809BB4D0052EA22 /* GithubServiceTest.swift */; };
+		0A00BAA92809BE930052EA22 /* stub.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A00BAA82809BE930052EA22 /* stub.json */; };
+		0A00BAAB2809BF090052EA22 /* Bundle+unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00BAAA2809BF090052EA22 /* Bundle+unitTest.swift */; };
+		0A00BAAF2809C90F0052EA22 /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00BAAE2809C90F0052EA22 /* RepositoriesViewModelTests.swift */; };
+		0A00BAB12809CB350052EA22 /* GithubServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00BAB02809CB350052EA22 /* GithubServiceMock.swift */; };
 		0A89406628039C8B002B53D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A89406528039C8B002B53D6 /* AppDelegate.swift */; };
 		0A89406828039C8B002B53D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A89406728039C8B002B53D6 /* SceneDelegate.swift */; };
 		0A89406D28039C8B002B53D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A89406B28039C8B002B53D6 /* Main.storyboard */; };
@@ -42,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A00BAA62809BB4D0052EA22 /* GithubServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceTest.swift; sourceTree = "<group>"; };
+		0A00BAA82809BE930052EA22 /* stub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stub.json; sourceTree = "<group>"; };
+		0A00BAAA2809BF090052EA22 /* Bundle+unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+unitTest.swift"; sourceTree = "<group>"; };
+		0A00BAAE2809C90F0052EA22 /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
+		0A00BAB02809CB350052EA22 /* GithubServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceMock.swift; sourceTree = "<group>"; };
 		0A89406228039C8B002B53D6 /* Github-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A89406528039C8B002B53D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A89406728039C8B002B53D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				0A89407C28039C8C002B53D6 /* Github_TaskTests.swift */,
+				0A00BAA62809BB4D0052EA22 /* GithubServiceTest.swift */,
+				0A00BAAE2809C90F0052EA22 /* RepositoriesViewModelTests.swift */,
+				0A00BAB02809CB350052EA22 /* GithubServiceMock.swift */,
+				0A00BAAA2809BF090052EA22 /* Bundle+unitTest.swift */,
+				0A00BAA82809BE930052EA22 /* stub.json */,
 			);
 			path = "Github-TaskTests";
 			sourceTree = "<group>";
@@ -227,7 +242,6 @@
 				EEF992472459277FA6F6D9CD /* Pods-Github-Task.debug.xcconfig */,
 				66D91A255AEC6258A988DAEB /* Pods-Github-Task.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -347,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A00BAA92809BE930052EA22 /* stub.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +436,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A00BAAF2809C90F0052EA22 /* RepositoriesViewModelTests.swift in Sources */,
+				0A00BAB12809CB350052EA22 /* GithubServiceMock.swift in Sources */,
+				0A00BAA72809BB4D0052EA22 /* GithubServiceTest.swift in Sources */,
+				0A00BAAB2809BF090052EA22 /* Bundle+unitTest.swift in Sources */,
 				0A89407D28039C8C002B53D6 /* Github_TaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

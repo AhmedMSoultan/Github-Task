@@ -7,13 +7,9 @@
 
 import Foundation
 
-//struct URLs{
-//
-//    public static var getAPIServiceURL : String = "https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc&page="
-//
-//}
+let baseURL = "https://api.github.com/search/repositories?per_page=100&q=created:%3E2017-10-22&sort=stars&order=desc&page="
+let secondaryURL = "https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc&page="
 
-let baseURL = "https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc&page="
 
 enum EndPoint {
     
@@ -28,7 +24,7 @@ enum EndPoint {
         switch self {
         
         case .repositoriesPageEndPoint(let pageNumber):
-            return baseURL+"\(pageNumber)"
+            return baseURL + "\(pageNumber)"
         }
     }
     
