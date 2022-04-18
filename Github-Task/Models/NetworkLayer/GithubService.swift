@@ -21,7 +21,6 @@ class GithubService {
                     let responseData = try decoder.decode(ResponseData.self, from: data)
                     
                     if let repositories = responseData.repositories {
-                        print(repositories)
                         completionHandler(repositories, nil)
                     }
                 }catch{

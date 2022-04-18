@@ -100,6 +100,15 @@ extension HomePageViewController: UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let repo = arrayOfRepositories[indexPath.row]
+        let fullURL = repo.html_url
+        if let url = fullURL{
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UIView.animate(withDuration: 0.4) {
@@ -112,15 +121,11 @@ extension HomePageViewController: UITableViewDelegate , UITableViewDataSource {
 extension HomePageViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
-            if index.row >= arrayOfRepositories.count - 10 && !repositiriesViewModel.isFetching{
+            if index.row >= arrayOfRepositories.count - 10 && !repositiriesViewModel.isFetching {
                 self.repositiriesViewModel.fetchRepositoriesDataFromGithubService(apiService: repositiriesViewModel.githubService)
                 break
             }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        
     }
     
 }

@@ -38,8 +38,8 @@ class RepositoriesViewModel: NSObject {
     func fetchRepositoriesDataFromGithubService (apiService: GithubService) {
         
         self.isFetching = true
-        print(pageID)
-        if pageID < 35 {
+        
+        if pageID < 11 {
             apiService.requestPageRepositories(url: EndPoint.repositoriesPageEndPoint("\(pageID)").url) { repositories, error in
                 if let error = error {
                     let message = error.localizedDescription

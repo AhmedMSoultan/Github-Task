@@ -29,7 +29,7 @@ class RepositoriesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell (repoName: String , repoDesc: String , repoStars: Int , repoIssues: Int , repoLastUpdateDate: String , repoOwnerName: String , ownerAvatar: URL){
+    func setupCell (repoName: String , repoDesc: String , repoStars: Int , repoIssues: Int , repoLastUpdateDate: String , repoOwnerName: String , ownerAvatar: URL ){
         
         repositoryNameLabel.text = repoName
         repositoryDescriptionLabel.text = repoDesc
@@ -40,12 +40,9 @@ class RepositoriesTableViewCell: UITableViewCell {
         let updateDate = dateFormatter.date(from: repoLastUpdateDate)
         
         
-        print(updateDate!)
-        print(todayDate)
-        
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: updateDate!, to: todayDate)
-        print(components.day!)
+        
         timeByOwnerNameLabel.text = "Updated \(components.day!) days ago by \(repoOwnerName)"
         
         userAvatarImageView.layer.cornerRadius = 30

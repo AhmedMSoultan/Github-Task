@@ -30,6 +30,7 @@ class Repository: Codable {
     let issuesCount: Int?
     let lastUpdateDate: String?
     let owner: Owner?
+    let html_url: URL?
     
     enum CodingKeys: String , CodingKey {
         case repoID = "id"
@@ -39,6 +40,7 @@ class Repository: Codable {
         case issuesCount = "open_issues_count"
         case lastUpdateDate = "updated_at"
         case owner = "owner"
+        case html_url = "html_url"
     }
 }
 
@@ -54,34 +56,3 @@ class Owner: Codable {
     }
 }
 
-
-
-// MARK: - RepositoryResponse
-class RepositoryResponse: Codable {
-    let totalCount: Int
-    let incompleteResults: Bool
-    let items: [Repositor]
-}
-
-// MARK: - Repository
-struct Repositor: Codable {
-    let id: Int
-    let name: String
-    let description: String?
-    let stargazersCount: Int
-    let openIssuesCount: Int
-    let createdAt, updatedAt: Date
-}
-
-// MARK: - Owner
-struct Ownerr: Codable {
-    let login: String
-    let id: Int
-    let avatarURL: String
-   
-
-    enum CodingKeys: String, CodingKey {
-        case login, id
-        case avatarURL = "avatar_url"
-    }
-}
